@@ -306,26 +306,182 @@ This week covers classic graph algorithms that are required for solving many opt
 #### **Day 55 & 56: Review & Catch-up**
 The algorithms in this week are classics. Make sure you can implement **Topological Sort (Kahn's), Union-Find (with optimizations), and Dijkstra's** from scratch. Understand the use case for each: TopoSort for dependencies, Union-Find for connectivity, and Dijkstra's for shortest paths in weighted graphs with non-negative edges.
 
+Of course. Here is the detailed study plan for the final part of your preparation, weeks 9 through 13, formatted as Markdown.
+
 ### **Week 9: Dynamic Programming - Basics**
 
-  * **Topics:** 1D and 2D DP, identifying DP subproblems, memoization vs. tabulation.
-  * **Key Problems:** [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/), [Coin Change](https://leetcode.com/problems/coin-change/), [House Robber](https://leetcode.com/problems/house-robber/), [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/).
+Dynamic Programming (DP) is a crucial topic. This week focuses on recognizing DP patterns and understanding the difference between top-down (memoization) and bottom-up (tabulation) approaches.
+
+#### **Day 57 & 58: 1D Dynamic Programming**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Climbing Stairs | [https://leetcode.com/problems/climbing-stairs/](https://leetcode.com/problems/climbing-stairs/) | LeetCode | Easy | 1D DP (Fibonacci Style) | Array / Variables | The number of ways to reach step `n` is `ways(n-1) + ways(n-2)`. This is the Fibonacci sequence. Solvable with a DP array or optimized to use just two variables. |
+| Min Cost Climbing Stairs | [https://leetcode.com/problems/min-cost-climbing-stairs/](https://leetcode.com/problems/min-cost-climbing-stairs/) | LeetCode | Easy | 1D DP | Array | `dp[i]` is the min cost to reach step `i`. `dp[i] = cost[i] + min(dp[i-1], dp[i-2])`. The final answer is `min(dp[n-1], dp[n-2])`. |
+| House Robber | [https://leetcode.com/problems/house-robber/](https://leetcode.com/problems/house-robber/) | LeetCode | Medium | 1D DP | Array | `dp[i]` is the max money robbed up to house `i`. The recurrence is `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`, representing the choice to either rob house `i` or skip it. |
+| House Robber II | [https://leetcode.com/problems/house-robber-ii/](https://leetcode.com/problems/house-robber-ii/) | LeetCode | Medium | 1D DP | Array | The problem breaks down into two separate House Robber I problems, since the first and last houses are adjacent: 1. Rob houses 0 to n-2. 2. Rob houses 1 to n-1. The answer is the max of these two. |
+| Decode Ways | [https://leetcode.com/problems/decode-ways/](https://leetcode.com/problems/decode-ways/) | LeetCode | Medium | 1D DP | Array | `dp[i]` is the number of ways to decode the string up to index `i`. A character can be decoded alone (if not '0') or with the previous character (if they form a number 10-26). `dp[i] = dp[i-1]` (for one-digit) `+ dp[i-2]` (for two-digit). |
+
+#### **Day 59 & 60: 2D Dynamic Programming**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Unique Paths | [https://leetcode.com/problems/unique-paths/](https://leetcode.com/problems/unique-paths/) | LeetCode | Medium | 2D DP (Grid) | 2D Array | `dp[i][j]` is the number of paths to cell `(i, j)`. The recurrence is `dp[i][j] = dp[i-1][j] + dp[i][j-1]`. The base cases are the first row and column, which have 1 path each. |
+| Unique Paths II | [https://leetcode.com/problems/unique-paths-ii/](https://leetcode.com/problems/unique-paths-ii/) | LeetCode | Medium | 2D DP (Grid) | 2D Array | Same as Unique Paths, but if a cell `(i, j)` has an obstacle, `dp[i][j] = 0`. This will propagate through the calculations. |
+| Minimum Path Sum | [https://leetcode.com/problems/minimum-path-sum/](https://leetcode.com/problems/minimum-path-sum/) | LeetCode | Medium | 2D DP (Grid) | 2D Array | `dp[i][j]` is the minimum path sum to cell `(i, j)`. The recurrence is `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])`. |
+
+#### **Day 61 & 62: DP on Subsequences**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Longest Common Subsequence | [https://leetcode.com/problems/longest-common-subsequence/](https://leetcode.com/problems/longest-common-subsequence/) | LeetCode | Medium | 2D DP | 2D Array | `dp[i][j]` is the LCS of `text1[0...i-1]` and `text2[0...j-1]`. If `text1[i-1] == text2[j-1]`, `dp[i][j] = 1 + dp[i-1][j-1]`. Otherwise, `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`. |
+| Longest Increasing Subsequence | [https://leetcode.com/problems/longest-increasing-subsequence/](https://leetcode.com/problems/longest-increasing-subsequence/) | LeetCode | Medium | 1D DP | Array | `dp[i]` is the length of the LIS ending at index `i`. To compute `dp[i]`, iterate from `j = 0 to i-1`. If `nums[i] > nums[j]`, then `dp[i] = max(dp[i], dp[j] + 1)`. An O(N log N) solution also exists using patience sorting. |
+| Coin Change | [https://leetcode.com/problems/coin-change/](https://leetcode.com/problems/coin-change/) | LeetCode | Medium | 1D DP | Array | `dp[i]` is the minimum number of coins to make amount `i`. To compute `dp[i]`, `dp[i] = min(dp[i], dp[i - coin] + 1)` for each coin in the `coins` array. |
+
+#### **Day 63: Review & Catch-up**
+
+DP is all about recognizing the pattern. Review the problems from this week. For each one, ask: What is the state? What is the recurrence relation? What are the base cases?
+
+-----
 
 ### **Week 10: Dynamic Programming - Advanced**
 
-  * **Topics:** Knapsack (0/1, Unbounded), Longest Increasing Subsequence, state machine DP.
-  * **Key Problems:** [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/), [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/), [Edit Distance](https://leetcode.com/problems/edit-distance/), [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/).
+This week builds on the DP foundation with more complex patterns like knapsack, palindromes, and state machines.
+
+#### **Day 64 & 65: Knapsack & Combination Sum Patterns**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Partition Equal Subset Sum | [https://leetcode.com/problems/partition-equal-subset-sum/](https://leetcode.com/problems/partition-equal-subset-sum/) | LeetCode | Medium | 0/1 Knapsack | 1D DP Array / Set | This can be reduced to the subset sum problem. Find if there is a subset that sums up to `total_sum / 2`. The DP state `dp[i]` can represent whether sum `i` is achievable. |
+| Combination Sum IV | [https://leetcode.com/problems/combination-sum-iv/](https://leetcode.com/problems/combination-sum-iv/) | LeetCode | Medium | Unbounded Knapsack | 1D DP Array | `dp[i]` is the number of combinations that sum up to `i`. The recurrence is `dp[i] = sum(dp[i - num])` for each `num` in the input array, as we can reuse numbers. |
+| Coin Change II | [https://leetcode.com/problems/coin-change-ii/](https://leetcode.com/problems/coin-change-ii/) | LeetCode | Medium | Unbounded Knapsack | 1D DP Array | `dp[j]` is the number of ways to make amount `j`. To avoid duplicate combinations, iterate through coins one by one and update the DP table for each coin. `dp[j] += dp[j - coin]`. |
+
+#### **Day 66 & 67: Palindromic DP & Edit Distance**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Longest Palindromic Substring | [https://leetcode.com/problems/longest-palindromic-substring/](https://leetcode.com/problems/longest-palindromic-substring/) | LeetCode | Medium | Expand Around Center | String | A non-DP but common approach. Iterate through the string, and for each character, expand outwards to find the longest palindrome centered there (for both odd and even length palindromes). |
+| Palindromic Substrings | [https://leetcode.com/problems/palindromic-substrings/](https://leetcode.com/problems/palindromic-substrings/) | LeetCode | Medium | Expand Around Center | String | Same "Expand Around Center" technique as above, but instead of tracking the max length, you increment a counter for every valid palindrome found. |
+| Edit Distance | [https://leetcode.com/problems/edit-distance/](https://leetcode.com/problems/edit-distance/) | LeetCode | Hard | 2D DP | 2D Array | `dp[i][j]` is the min edit distance between `word1[0...i-1]` and `word2[0...j-1]`. If `word1[i-1] == word2[j-1]`, `dp[i][j] = dp[i-1][j-1]`. Otherwise, `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])` (for delete, insert, replace). |
+
+#### **Day 68 & 69: Advanced DP Problems**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Best Time to Buy and Sell Stock with Cooldown | [https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | LeetCode | Medium | State Machine DP | Variables | Track three states: `held` (max profit if holding a stock), `sold` (max profit if just sold), and `reset` (max profit if not holding and not in cooldown). Define transitions between these states. |
+| Word Break | [https://leetcode.com/problems/word-break/](https://leetcode.com/problems/word-break/) | LeetCode | Medium | 1D DP | 1D DP Array, Set | `dp[i]` is true if the string `s[0...i-1]` can be segmented. To compute `dp[i]`, check if `dp[j]` is true and the substring `s[j...i-1]` is in the dictionary, for all `j < i`. |
+| Burst Balloons | [https://leetcode.com/problems/burst-balloons/](https://leetcode.com/problems/burst-balloons/) | LeetCode | Hard | DP with Intervals | 2D DP Array | `dp[i][j]` is the max coins from bursting balloons in the range `[i, j]`. The key is to think about which balloon to burst *last* in an interval `(i, j)`. Let this be `k`. The score is `dp[i][k] + nums[i]*nums[k]*nums[j] + dp[k][j]`. |
+
+#### **Day 70: Review & Catch-up**
+
+Advanced DP can be tough. Re-read the solutions for the hard problems and try to derive the recurrence relations yourself. Understanding the state transitions in the "Cooldown" problem is key for state machine DP.
+
+-----
 
 ### **Week 11: Backtracking**
 
-  * **Topics:** Generating all possible solutions for subsets, combinations, and permutations; backtracking on grids.
-  * **Key Problems:** [Subsets](https://leetcode.com/problems/subsets/), [Combination Sum](https://leetcode.com/problems/combination-sum/), [Permutations](https://leetcode.com/problems/permutations/), [N-Queens](https://leetcode.com/problems/n-queens/).
+Backtracking is a methodical way of trying out different sequences of decisions, for problems that require exploring all possible solutions (like subsets, permutations, and constraint satisfaction).
 
-### **Week 12: System Design & Miscellaneous**
+#### **Day 71 & 72: Subsets & Combinations**
 
-  * **Topics:** System Design core concepts (scalability, availability, consistency), high-level design problems, Bit Manipulation, Interval Problems.
-  * **Key Problems:** [Design TinyURL](https://www.google.com/search?q=https://leetcode.com/problems/design-tinyurl/), [Merge Intervals](https://leetcode.com/problems/merge-intervals/), [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/), [Reverse Bits](https://leetcode.com/problems/reverse-bits/).
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Subsets | [https://leetcode.com/problems/subsets/](https://leetcode.com/problems/subsets/) | LeetCode | Medium | Backtracking | Array, List | Use a recursive backtracking function. In each call, you have two choices for the current element: either include it in the current subset and recurse, or not include it and recurse. |
+| Subsets II | [https://leetcode.com/problems/subsets-ii/](https://leetcode.com/problems/subsets-ii/) | LeetCode | Medium | Backtracking | Array, List | Same as Subsets, but you must handle duplicates. Sort the input array first. In the recursion, if the current element is the same as the previous one, only consider including it if the previous one was also included. |
+| Combinations | [https://leetcode.com/problems/combinations/](https://leetcode.com/problems/combinations/) | LeetCode | Medium | Backtracking | Array, List | Similar to Subsets, but you need to generate combinations of a specific size `k`. The recursive function takes the current combination and a starting index to build upon. |
+| Combination Sum | [https://leetcode.com/problems/combination-sum/](https://leetcode.com/problems/combination-sum/) | LeetCode | Medium | Backtracking | Array, List | Use backtracking. In the recursive function, you can either include the current number again (since numbers can be reused) or move to the next number. Prune branches where the sum exceeds the target. |
+
+#### **Day 73 & 74: Permutations & Backtracking on Grids**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Permutations | [https://leetcode.com/problems/permutations/](https://leetcode.com/problems/permutations/) | LeetCode | Medium | Backtracking | Array, List | Use a backtracking function. Keep track of used elements (e.g., with a boolean array or by swapping elements) to avoid duplicates in a single permutation. |
+| Permutations II | [https://leetcode.com/problems/permutations-ii/](https://leetcode.com/problems/permutations-ii/) | LeetCode | Medium | Backtracking | Array, List, HashMap | Handle duplicates. Sort the input array. In the recursion, if the current element is the same as the previous one, skip it if the previous one hasn't been used in this path. A frequency map can also be used. |
+| Word Search | [https://leetcode.com/problems/word-search/](https://leetcode.com/problems/word-search/) | LeetCode | Medium | Backtracking on Grid | 2D Array | Start a DFS from each cell. In the DFS, explore neighbors to find the next character of the word. Mark visited cells (e.g., by changing the character) to avoid cycles and unmark them when backtracking. |
+
+#### **Day 75 & 76: Harder Backtracking Problems**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| N-Queens | [https://leetcode.com/problems/n-queens/](https://leetcode.com/problems/n-queens/) | LeetCode | Hard | Backtracking | 2D Array / Sets | A classic backtracking problem. Try to place a queen in each row, one by one. For each placement, check if it's valid (not attacked by other queens). Use sets or boolean arrays to keep track of occupied columns and diagonals for O(1) validity checks. |
+| Sudoku Solver | [https://leetcode.com/problems/sudoku-solver/](https://leetcode.com/problems/sudoku-solver/) | LeetCode | Hard | Backtracking | 2D Array | Write a recursive function that tries to fill the board. Find the next empty cell. Try placing numbers 1-9 in it. For each valid placement, recurse. If the recursion returns true, you've found a solution. If not, backtrack by resetting the cell to empty. |
+
+#### **Day 77: Review & Catch-up**
+
+The core of backtracking is the "choose, explore, unchoose" pattern. Draw the recursion tree for a small example of Subsets or Permutations to solidify your understanding.
+
+-----
+
+### **Week 12: System Design & Miscellaneous Topics**
+
+This week covers important miscellaneous topics and introduces the fundamentals of system design, a key component of FAANG interviews, especially for experienced roles.
+
+#### **Day 78 & 79: System Design Fundamentals**
+
+| Topic / Problem | Problem Link | Problem Source | Difficulty | Problem Pattern | Key Concepts | Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| System Design Concepts | - | General | - | High-Level Design | Scalability, Availability, Latency, Consistency, CAP Theorem, Load Balancing, Caching, Databases (SQL vs NoSQL) | Watch introductory videos (e.g., Gaurav Sen, System Design Interview channel) or read articles on these core concepts. Understand the trade-offs. |
+| Design TinyURL | [https://leetcode.com/problems/design-tinyurl/](https://www.google.com/search?q=https://leetcode.com/problems/design-tinyurl/) | LeetCode | Medium | System Design | Hashing, Key-Value Store, API Design, Scalability | This is a classic system design question. Think about: 1. How to generate a unique short key for a long URL (e.g., hashing + collision resolution, base-62 encoding of a counter). 2. How to store the mapping. 3. How to handle high read traffic (caching). 4. API endpoints (`POST /create`, `GET /{short_key}`). |
+
+#### **Day 80 & 81: Interval Problems**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Merge Intervals | [https://leetcode.com/problems/merge-intervals/](https://leetcode.com/problems/merge-intervals/) | LeetCode | Medium | Sorting + Merging | Array | Sort the intervals by their start time. Iterate through the sorted intervals and merge overlapping ones. If the current interval overlaps with the last one in the result list, merge them; otherwise, add it as a new interval. |
+| Insert Interval | [https://leetcode.com/problems/insert-interval/](https://leetcode.com/problems/insert-interval/) | LeetCode | Medium | Merging | Array | Find the correct position to insert the new interval. Then, merge it with any overlapping intervals before and after it. A simpler approach is to add the new interval and then just call the Merge Intervals logic. |
+| Non-overlapping Intervals | [https://leetcode.com/problems/non-overlapping-intervals/](https://leetcode.com/problems/non-overlapping-intervals/) | LeetCode | Medium | Greedy | Array | This is a classic interval scheduling problem. To maximize the number of non-overlapping intervals (and thus minimize removals), sort the intervals by their *end* times. Greedily pick the interval that finishes first, then find the next interval that starts after the first one ends. |
+| Meeting Rooms II | [https://leetcode.com/problems/meeting-rooms-ii/](https://leetcode.com/problems/meeting-rooms-ii/) | LeetCode | Medium | Heaps / Chronological Ordering | Min-Heap, Array | **Heap:** Sort intervals by start time. Use a min-heap to store the end times of meetings currently in progress. For each new meeting, if its start time is after the earliest end time in the heap, you can reuse a room (pop from heap). Then, add the new meeting's end time. The heap's max size is the answer. |
+
+#### **Day 82 & 83: Bit Manipulation**
+
+| Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Number of 1 Bits | [https://leetcode.com/problems/number-of-1-bits/](https://leetcode.com/problems/number-of-1-bits/) | LeetCode | Easy | Bitwise Operations | Integer | Use a loop and a bitwise AND (`&`) to check the last bit. Then right-shift the number. A common trick is `n & (n - 1)`, which unsets the rightmost set bit; count how many times you can do this until `n` becomes 0. |
+| Counting Bits | [https://leetcode.com/problems/counting-bits/](https://leetcode.com/problems/counting-bits/) | LeetCode | Easy | Bitwise DP | Array | `dp[i]` is the number of 1s in `i`. Notice the pattern: `dp[i] = dp[i >> 1] + (i & 1)`. The number of 1s in `i` is the same as in `i/2`, plus one if `i` is odd. |
+| Reverse Bits | [https://leetcode.com/problems/reverse-bits/](https://leetcode.com/problems/reverse-bits/) | LeetCode | Easy | Bitwise Operations | Integer | Iterate 32 times. In each iteration, take the last bit of the input number `n` and append it to the result. Do this by left-shifting the `result` and then OR-ing it with the bit. Then, right-shift `n`. |
+| Sum of Two Integers | [https://leetcode.com/problems/sum-of-two-integers/](https://leetcode.com/problems/sum-of-two-integers/) | LeetCode | Medium | Bitwise Operations | Integer | Simulate binary addition. The sum without carry is `a ^ b` (XOR). The carry is `(a & b) << 1` (AND, then left shift). Repeat this process with the sum and carry until the carry becomes 0. |
+
+#### **Day 84: Review & Catch-up**
+
+Review the interval patterns (sorting by start vs. end time) and the bit manipulation tricks. Spend more time on system design concepts, as they are less about code and more about high-level thinking.
+
+-----
 
 ### **Week 13: Final Review & Mock Interviews**
 
-  * **Activity:** Focus entirely on mock interviews (using platforms like Pramp or interviewing with peers). Identify weak areas from the mock interviews and do targeted practice on those specific patterns. Review the most common and important problems from the entire plan.
+The final week is for consolidation, practice under pressure, and building confidence.
+
+  * **Day 85: Mock Interview 1.**
+
+      * Use a platform like Pramp or interview with a peer.
+      * Focus on articulating your thought process clearly from the moment you see the problem.
+      * Afterward, review your performance. Did you understand the problem correctly? Did you explore trade-offs? Was your code clean?
+
+  * **Day 86: Weakest Area Review.**
+
+      * Based on your mock interview and the past 12 weeks, identify your single weakest topic (e.g., Graphs, Advanced DP).
+      * Spend this day doing 3-4 medium problems exclusively from that topic. Go back to the basics and rebuild your confidence.
+
+  * **Day 87: Mock Interview 2.**
+
+      * Do another mock interview. Try to apply lessons from the first one.
+      * Focus on speed and accuracy. Try to get to a working solution, then discuss optimizations.
+
+  * **Day 88: Review Top Patterns.**
+
+      * Quickly review the most important patterns: Sliding Window, Two Pointers, BFS/DFS on Grids/Trees, Topological Sort, Union-Find, Top K with Heaps, 1D DP, Backtracking template.
+      * Don't solve full problems, just read the problem and verball describe the pattern and approach you would take.
+
+  * **Day 89: System Design Mock Interview.**
+
+      * If possible, do a mock interview focused *only* on system design.
+      * Practice drawing diagrams and explaining your component choices. Be prepared to justify every decision.
+      * If you can't do a mock, pick a common problem (e.g., Design Instagram, Design a Ride-Sharing App) and talk through it out loud for 45 minutes.
+
+  * **Day 90: Rest & Final Prep.**
+
+      * Do not cram. Do one or two easy problems to stay warm.
+      * Review your "elevator pitch" about your experience and projects. Prepare questions to ask your interviewers.
+      * Get a good night's sleep. Your brain needs to be rested and sharp.
+
+Good luck\! You've put in the work, now it's time to perform.

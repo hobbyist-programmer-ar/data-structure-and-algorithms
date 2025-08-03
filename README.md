@@ -1,4 +1,4 @@
-Data Structure and Algorithm in Java
+# Data Structure and Algorithm in Java
 * The main focus of this repo is to implements some of the basic data Structures in Java like Array List, Linked List, Stack , Queues, Heaps, Graphs and Trees and cover all the highly used Algorithms in a pattern wise manner for interview preparation and creating some of the algorithms from Information theory
 
 ## **Week 1: Arrays & Strings**

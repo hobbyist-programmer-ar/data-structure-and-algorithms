@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/3sum
+ */
 class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> triplets = new ArrayList<>();

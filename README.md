@@ -21,7 +21,7 @@ This week is about solidifying your understanding of the most fundamental data s
 
 | Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description | Completion |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Best Time to Buy and Sell Stock | https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ | LeetCode | Easy | Sliding Window | Array | Keep track of the minimum price found so far (left pointer) and calculate the max profit as you iterate (right pointer). |  |
+| Best Time to Buy and Sell Stock | https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ | LeetCode | Easy | Sliding Window | Array | Keep track of the minimum price found so far (left pointer) and calculate the max profit as you iterate (right pointer). | Done |
 | Maximum Average Subarray I | https://leetcode.com/problems/maximum-average-subarray-i/ | LeetCode | Easy | Sliding Window | Array | Maintain a sliding window of size `k`. Calculate the sum of the first window, then slide it by one element at a time, updating the sum and tracking the maximum. |  |
 | Longest Substring Without Repeating Characters | https://leetcode.com/problems/longest-substring-without-repeating-characters/ | LeetCode | Medium | Sliding Window | String, HashSet | Use a sliding window with a HashSet to track characters. Expand the window by moving the right pointer. If a duplicate is found, shrink the window from the left. |  |
 | Minimum Size Subarray Sum | https://leetcode.com/problems/minimum-size-subarray-sum/ | LeetCode | Medium | Sliding Window | Array | Use a variable-sized sliding window. Expand the window until the sum is \>= target, then shrink it from the left to find the minimum length. |  |

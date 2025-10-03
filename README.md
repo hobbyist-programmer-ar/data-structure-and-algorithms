@@ -357,8 +357,8 @@ Dynamic Programming (DP) is a crucial topic. This week focuses on recognizing DP
 | Problem Name | Problem Link | Problem Source | Difficulty | Problem Pattern | Data Structures Used | Solution Description | Completion |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Longest Common Subsequence | https://leetcode.com/problems/longest-common-subsequence/ | LeetCode | Medium | 2D DP | 2D Array | `dp[i][j]` is the LCS of `text1[0...i-1]` and `text2[0...j-1]`. If `text1[i-1] == text2[j-1]`, `dp[i][j] = 1 + dp[i-1][j-1]`. Otherwise, `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`. |  |
-| Longest Increasing Subsequence | https://leetcode.com/problems/longest-increasing-subsequence/ | LeetCode | Medium | 1D DP | Array | `dp[i]` is the length of the LIS ending at index `i`. To compute `dp[i]`, iterate from `j = 0 to i-1`. If `nums[i] > nums[j]`, then `dp[i] = max(dp[i], dp[j] + 1)`. An O(N log N) solution also exists using patience sorting. |  |
-| Coin Change | https://leetcode.com/problems/coin-change/ | LeetCode | Medium | 1D DP | Array | `dp[i]` is the minimum number of coins to make amount `i`. To compute `dp[i]`, `dp[i] = min(dp[i], dp[i - coin] + 1)` for each coin in the `coins` array. |  |
+| Longest Increasing Subsequence | https://leetcode.com/problems/longest-increasing-subsequence/ | LeetCode | Medium | 1D DP | Array | `dp[i]` is the length of the LIS ending at index `i`. To compute `dp[i]`, iterate from `j = 0 to i-1`. If `nums[i] > nums[j]`, then `dp[i] = max(dp[i], dp[j] + 1)`. An O(N log N) solution also exists using patience sorting. | Done |
+| Coin Change | https://leetcode.com/problems/coin-change/ | LeetCode | Medium | 1D DP | Array | `dp[i]` is the minimum number of coins to make amount `i`. To compute `dp[i]`, `dp[i] = min(dp[i], dp[i - coin] + 1)` for each coin in the `coins` array. | Done |
 
 ### **Day 63: Review & Catch-up**
 

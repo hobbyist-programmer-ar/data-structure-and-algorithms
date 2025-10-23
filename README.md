@@ -384,7 +384,7 @@ This week builds on the DP foundation with more complex patterns like knapsack, 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Longest Palindromic Substring | https://leetcode.com/problems/longest-palindromic-substring/ | LeetCode | Medium | Expand Around Center | String | A non-DP but common approach. Iterate through the string, and for each character, expand outwards to find the longest palindrome centered there (for both odd and even length palindromes). |  |
 | Palindromic Substrings | https://leetcode.com/problems/palindromic-substrings/ | LeetCode | Medium | Expand Around Center | String | Same "Expand Around Center" technique as above, but instead of tracking the max length, you increment a counter for every valid palindrome found. |  |
-| Edit Distance | https://leetcode.com/problems/edit-distance/ | LeetCode | Hard | 2D DP | 2D Array | `dp[i][j]` is the min edit distance between `word1[0...i-1]` and `word2[0...j-1]`. If `word1[i-1] == word2[j-1]`, `dp[i][j] = dp[i-1][j-1]`. Otherwise, `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])` (for delete, insert, replace). |  |
+| Edit Distance | https://leetcode.com/problems/edit-distance/ | LeetCode | Hard | 2D DP | 2D Array | `dp[i][j]` is the min edit distance between `word1[0...i-1]` and `word2[0...j-1]`. If `word1[i-1] == word2[j-1]`, `dp[i][j] = dp[i-1][j-1]`. Otherwise, `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])` (for delete, insert, replace). | Done |
 
 ### **Day 68 & 69: Advanced DP Problems**
 

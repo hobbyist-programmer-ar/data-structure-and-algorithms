@@ -30,7 +30,7 @@ class BoxStacking {
                     && cuboids[previousIndex][2] <= cuboids[currentIndex][2];
 
                 if(canStack) {
-                    Math.max(dp[currentIndex], dp[previousIndex]);
+                    dp[currentIndex] = Math.max(dp[currentIndex], dp[previousIndex]);
                 }
             }
             dp[currentIndex] += cuboids[currentIndex][2];

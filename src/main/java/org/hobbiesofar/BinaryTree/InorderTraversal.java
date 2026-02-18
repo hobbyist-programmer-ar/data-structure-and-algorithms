@@ -16,15 +16,31 @@ class InorderTraversal {
         }
     }
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        recursiveInOrderTraversal(root, result);
+        List<Integer> result = iterativeInorderTraversal(root);
+        // recursiveInOrderTraversal(root, result);
         return result;
     }
-    private void recursiveInorder(TreeNode root, List<Integer> result) {
+    private void recursiveInOrderTraversal(TreeNode root, List<Integer> result) {
         if(root == null) return;
-        recursiveInorder(root.left, result);
+        recursiveInOrderTraversal(root.left, result);
         result.add(root.val);
-        recursiveInorder(root.right, result);
+        recursiveInOrderTraversal(root.right, result);
+    }
+
+    private List<Integer> iterativeInorderTraversal(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+        while(curr != null || !stack.isEmpty()) {
+            while(curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            ans.add(curr.val);
+            curr = curr.right;
+        }
+        return ans;
     }
 
 }
